@@ -1,0 +1,188 @@
+// @import "node_modules/bootstrap-scss/bootstrap";
+@import "bootstrap";
+// @import "variables";
+@import "bootstrap-vue";
+@import "fonts";
+
+// // Your custom scss files goes here
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+
+  background-color: $gray-100;
+}
+
+.was-validated .form-control:invalid:focus,
+.form-control.is-invalid:focus,
+.was-validated .form-control:valid:focus,
+.form-control.is-valid:focus {
+  box-shadow: none;
+}
+
+// Helpers
+.font-weight-500 {
+  font-weight: 500;
+}
+.opacity-100 {
+  opacity: 1;
+}
+.opacity-50 {
+  opacity: 0.5;
+}
+.opacity-25 {
+  opacity: 0.25;
+}
+
+.tracking-wide {
+  letter-spacing: 0.045rem;
+}
+
+.fill-current {
+  fill: currentColor;
+}
+
+.nav-custom .nav-link {
+  color: rgba(255, 255, 255, 0.5);
+  position: relative;
+  padding-left: 2rem;
+  border-left: 3px solid transparent;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.95);
+    // border-radius: $border-radius;
+  }
+}
+.nav-custom .nav-link.active {
+  color: rgba(255, 255, 255, 0.95);
+  // font-weight: 500;
+  background-color: rgba(255, 255, 255, 0.1);
+
+  border-left: 3px solid $primary;
+
+  // &:after {
+  //   content: "";
+  //   position: absolute;
+  //   top: 0;
+  //   bottom: 0;
+  //   left: 0;
+  //   width: 4px;
+  //   height: 100%;
+  //   // border-radius: 50%;
+  //   background-color: $primary;
+  //   // border-top-right-radius: 4px;
+  //   // border-bottom-right-radius: 4px;
+  // }
+}
+
+.card {
+  // box-shadow: $box-shadow-sm;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+.shadow-xs {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.text-xs {
+  font-size: 0.75rem;
+}
+.text-sm {
+  font-size: 0.875rem;
+}
+
+// Table
+.table-custom thead th {
+  border-top: 0;
+  border-bottom: 0;
+  background-color: rgba(52, 67, 75, 0.03);
+}
+
+.table-custom thead tr th:first-child,
+.table-custom tbody tr td:first-child {
+  padding-left: 1.25rem;
+}
+
+.table-custom th,
+.table-custom td {
+  // padding: 0.75rem;
+  // vertical-align: top;
+  border-top: 1px solid $gray-200;
+}
+
+table.table-custom > thead > tr > th,
+table.table-custom > tfoot > tr > th {
+  font-size: 0.75rem;
+  font-weight: 700;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.04rem;
+  color: $gray-700;
+}
+
+// Checkbox/Radio
+.custom-checkbox .custom-control-label::before {
+  border-radius: 0.25rem;
+}
+
+.shadow-none {
+  box-shadow: none;
+}
+.vh-100 {
+  height: 100vh !important;
+}
+.text-gray-600 {
+    color: #6c757d;
+}
+
+.border-top-info {
+  border: 0;
+  border-top: 4px solid $info;
+}
+.border-top-danger {
+  border: 0;
+  border-top: 4px solid $danger;
+}
+.border-top-success {
+  border: 0;
+  border-top: 4px solid $success;
+}
+
+.bg-holder{
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: 50%;
+    overflow: hidden;
+    will-change: transform,opacity,filter;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.router-link-exact-active {
+    color: hsla(0,0%,100%,.95) !important;
+    background-color: hsla(0,0%,100%,.1) !important;
+    border-left: 3px solid #fff !important;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.btn-link {
+  text-decoration: none !important;
+}
+
+@import "vuesnack";
+@import "spinner";
