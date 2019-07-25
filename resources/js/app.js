@@ -43,8 +43,8 @@ window.axios = axios;
 
 // axios.defaults.baseURL = `${process.env.MIX_APP_URL}/`;
 
-axios.defaults.baseURL = "http://happydrifetrs.test";
-// axios.defaults.baseURL = "http://hdrifters.softinvoice.in";
+// axios.defaults.baseURL = "http://happydrifetrs.test";
+axios.defaults.baseURL = "http://hdrifters.softinvoice.in";
 Vue.component("vue-avatar", VueAvatar);
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
