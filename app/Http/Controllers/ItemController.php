@@ -11,7 +11,7 @@ class ItemController extends Controller
   
     public function index()
     {
-            $products = Product::NotFinished()->get();
+            $products = Product::with('category')->NotFinished()->get();
         
         return response([
             'items' => new ProductCollection($products), 
