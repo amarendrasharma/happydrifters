@@ -48,7 +48,7 @@
             </td>
             <td class="small">{{ product.created_at | formattedDate }}</td>
             <td class="small">{{ product.updated_at | formattedDate }}</td>
-            <td class="small">{{ product.category.category_name }}</td>
+            <td class="small" v-if="product.category">{{ product.category.category_name }}</td>
             <!-- <td
               class="small text-right"
             >{{ product.lot_quantity_left ? product.lot_quantity_left : 'Not available'}}</td>-->
