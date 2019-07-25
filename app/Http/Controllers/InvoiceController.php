@@ -12,11 +12,16 @@ use Illuminate\Support\Facades\DB;
 class InvoiceController extends Controller
 {
     public function index(Request $request){
-        $invoices = Invoice::query() 
-                ->with('customer')
-                ->orderBy('created_at', 'desc');
-                // ->select('id', 'uuid', 'customer_id', 'invoice_no', 'created_at', 'total_rounded_amount_payable');
-
+        $invoice = Invoice::query(); 
+        if(auth()->user()->id === 1 ) {
+            $invoices =  $invoice->with('customer')
+                    ->orderBy('created_at', 'desc');
+        }else 
+        {
+        $invoices = $invoice->where('user_id', auth()->user()->id)
+                    ->with('customer')
+                    ->orderBy('created_at', 'desc');
+}
         if ($request->has('search') && ($request->get('search') != null || $request->get('search') != 'null' || $request->get('search') != '')) {
             $searchQuery = $request->input('search');
             /**
@@ -24,7 +29,6 @@ class InvoiceController extends Controller
              */
             $invoices = $invoices->where('invoice_no', 'LIKE', '%'.$searchQuery.'%');
         }
-
         // if ($request->has('start') && $request->has('end')) {
             	
         //     $start = $request->input('start');
@@ -34,11 +38,8 @@ class InvoiceController extends Controller
         //     return (new TransactionsExport($pos_id, $start, $end))->download('invoices.xlsx');
             
         // }
-
         $invoices = $invoices->simplePaginate(8);
-
         // dd($invoices);
-
         if ($request->ajax()) {
             return response()->json($invoices, 200);
         } 
@@ -126,6 +127,7 @@ class InvoiceController extends Controller
                 'total_rounded_amount_payable' => $total_rounded_amount,
                 'invoice_history' => json_encode($inventory),  
                 'invoice_address' => json_encode($invoice_address),
+                'user_id' => auth()->user()->id
                 // 'paid_amount' => $paid_amount,
                 // 'amount_return' => $amount_return
             ]);  
