@@ -25,6 +25,13 @@ Route::group(['middleware' => ['auth']], function () {
         return redirect('/admin');
     })->name('home');
 
+    Route::group([       
+        'prefix' => 'password'
+    ], function () {     
+        //password change
+        Route::post('change', 'PasswordChangeController@store');
+    });
+
     Route::get('/invoices', 'InvoiceController@index');
     Route::post('/invoice', 'InvoiceController@store');
     Route::get('/invoices/{invoice_uuid}', 'InvoiceController@show');
@@ -70,5 +77,5 @@ Auth::routes(['register' => false]);
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
