@@ -6,13 +6,13 @@
                 <div class="col-md-12">
                     <div ref="printTable">
                         <div class="px-3 py-3 w-100">
-                            <ul class="small list-inline text-center mb-1 pb-1">
+                            <ul class="small list-inline text-center mb-4 pb-1">
                                
                                 <li class="text-right text-uppercase">ph. no.  +91-69001-43733</li>
-                                <li class="text-uppercase text-underline">Tax invoice</li>
-                                 <li class="text-center text-uppercase">
+                                 <li class="text-center text-uppercase" style="margin-top:-25px;">
                                     <img src="/images/logo1.png" height="50" />
                                     </li>
+                                <li class="text-uppercase text-underline my-2">Tax invoice</li>
                                 <li class="h6 title my-1 text-center text-uppercase fw-bold font-weight-bold">The Eagle’s Nest Happy Drifters </li>
                                 <li>Travellers Home</li>
                                 <li class="text-uppercase">Metsikchulung, Behind SNM Hospital Leh Jammu and Kashmir, 194101</li>
