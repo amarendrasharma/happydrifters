@@ -132,7 +132,6 @@ export default {
   },
 
   mounted() {
-    // this.getBalance()
     EventBus.$on("invoice-amount", this.handleInvoiceAmount);
   },
 
@@ -143,7 +142,7 @@ export default {
 
     printInvoice() {
       EventBus.$emit("print-invoice");
-    },
+    }
 
     // getBalance() {
     // 	axios

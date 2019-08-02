@@ -432,11 +432,9 @@ export default {
                     }
                     .mt-m25 {
     margin-top: -10px;
-
                     }
                     .mt-m40 {
-    margin-top: 20px;
-
+                    margin-top: 20px;
                     }
                     .text-left{
                         text-align:left;
