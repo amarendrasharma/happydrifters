@@ -7,12 +7,16 @@
                     <div ref="printTable">
                         <div class="px-3 py-3 w-100">
                             <ul class="small list-inline text-center mb-1 pb-1">
+                               
                                 <li class="text-right text-uppercase">ph. no.  +91-69001-43733</li>
                                 <li class="text-uppercase text-underline">Tax invoice</li>
-                                <li class="h6 title my-1 text-center text-uppercase fw-bold font-weight-bold">Happy Drifters LLP</li>
-                                <li>House No-99, GNB Road, Silpukhuri, Guwahati-781003</li>
+                                 <li class="text-center text-uppercase">
+                                    <img src="/images/logo1.png" height="50" />
+                                    </li>
+                                <li class="h6 title my-1 text-center text-uppercase fw-bold font-weight-bold">The Eagle’s Nest Happy Drifters </li>
+                                <li>Travellers Home</li>
+                                <li class="text-uppercase">Metsikchulung, Behind SNM Hospital Leh Jammu and Kashmir, 194101</li>
                                 <li>hello@happydrifters.com</li>
-                                <li class="text-uppercase">GSTIN NO: 18AALFH9921N1ZM</li>
                             </ul>   
                             <ul class="small list-inline text-xs-left text-uppercase mb-2 pb-1">
                                 <li class="small d-flex justify-content-between align-items-center">
@@ -117,6 +121,7 @@
                                             <ul class="list-inline">
                                                 <li class="text-uppercase text-underline">terms of sale</li>
                                                 <li class="">Goods & service once sold cannot be taken back</li>
+                                        <li class="">All transactions are done in Indian Rupees (&#8377;)</li>
                                             </ul>
                                         </td>
                                         <td colspan="3" class="border">
@@ -164,39 +169,40 @@
                                             <ul class="list-inline mb-0">
                                                 <li class="d-flex align-items-center">
                                                     <span style="width:100px;">
-                                                        Bank Details
+                                                      <!-- Registered Office   -->
                                                     </span> 
                                                 </li>  
-                                                <li class="d-flex align-items-center">
+                                                 <li class="d-flex align-items-center">
                                                     <span style="width:100px;">
-                                                        Bank Name
-                                                    </span>
-                                                    <span> 
-                                                        :
-                                                    </span>
-                                                </li>  
-                                                <li class="d-flex align-items-center">
-                                                    <span style="width:100px;">
-                                                        A/C No
+                                                         Registered Office
                                                     </span>
                                                     <span>
-                                                        :
-                                                    </span>
-                                                </li>   
-                                                <li class="d-flex align-items-center">
-                                                    <span style="width:100px;">
-                                                        IFSC Code
-                                                    </span>
-                                                    <span>
-                                                        :
+                                                      : Happy Drifters LLP
                                                     </span>
                                                 </li>
                                                 <li class="d-flex align-items-center">
                                                     <span style="width:100px;">
-                                                        Branch Name
+                                                    Address
+                                                    </span>
+                                                    <span> 
+                                                       : House No-99, GNB Road, Silpukhuri
+                                                    </span>
+                                                </li>  
+                                                <li class="d-flex align-items-center">
+                                                    <span style="width:100px;">
+                                                     GSTIN NO
                                                     </span>
                                                     <span>
-                                                        :
+                                                       : 18AALFH9921N1ZM
+                                                    </span>
+                                                </li>   
+                                               
+                                                <li class="d-flex align-items-center">
+                                                    <span style="width:100px;">
+                                                        <!-- Branch Name -->
+                                                    </span>
+                                                    <span>
+                                                        <!-- : -->
                                                     </span>
                                                 </li>
                                             </ul>
