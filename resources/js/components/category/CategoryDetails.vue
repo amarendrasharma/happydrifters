@@ -199,7 +199,7 @@ export default {
 		updateGardenDetail() {
 			this.spinner = true;
 			axios
-				.put(`/category/${this.uuid}`, this.gardendata)
+				.post(`/category/${this.uuid}`, this.gardendata)
 				.then(response => {
 					this.spinner = false;
 					this.loadProductData();
