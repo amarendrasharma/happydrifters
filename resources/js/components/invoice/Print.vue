@@ -11,8 +11,8 @@
             <div class="px-3 py-3 w-100">
               <ul class="small list-inline text-center mb-1 pb-1">
                 <li class="text-right text-uppercase">ph. no. +91-69001-43733</li>
-                <li class="text-left text-uppercase mt-m25" style="margin-top:-25px;">
-                  <img src="/images/logo1.png" height="50" />
+                <li class="text-left text-uppercase" style="margin-top:-25px;">
+                  <img src="/images/logo1.png" height="50" class="mt-m25" />
                 </li>
                 <li
                   class="text-uppercase text-underline mt-m40"
@@ -305,8 +305,8 @@ export default {
 						// font-size: 12px;
 					}
 					body {
-						margin: 0;
-						padding: 0;
+						margin: 5px;
+						padding: 5px;
 						font-family: Roboto, sans-serif;
 						position: relative;
 						-webkit-region-break-inside: avoid;
@@ -431,7 +431,7 @@ export default {
                         text-decoration:underline solid #222;
                     }
                     .mt-m25 {
-    margin-top: -10px;
+    margin-top: 10px;
                     }
                     .mt-m40 {
                     margin-top: 20px;
