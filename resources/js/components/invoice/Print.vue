@@ -11,16 +11,12 @@
             <div class="px-3 py-3 w-100">
               <ul class="small list-inline text-center mb-1 pb-1">
                 <li class="text-right text-uppercase">ph. no. +91-69001-43733</li>
-                <li class="text-left text-uppercase" style="
-    margin-top: -25px;
-">
+                <li class="text-left text-uppercase mt-m25" style="margin-top:-25px;">
                   <img src="/images/logo1.png" height="50" />
                 </li>
                 <li
-                  class="text-uppercase text-underline"
-                  style="
-    margin-top: -40px;
-"
+                  class="text-uppercase text-underline mt-m40"
+                  style="margin-top:-40px;"
                 >Tax invoice</li>
                 <li
                   class="h6 title my-1 text-center text-uppercase fw-bold font-weight-bold"
@@ -433,6 +429,17 @@ export default {
                     }
                     .text-underline {  
                         text-decoration:underline solid #222;
+                    }
+                    .mt-m25 {
+    margin-top: -10px;
+
+                    }
+                    .mt-m40 {
+    margin-top: 20px;
+
+                    }
+                    .text-left{
+                        text-align:left;
                     }
 				</style>
 				`;

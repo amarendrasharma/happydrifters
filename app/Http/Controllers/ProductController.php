@@ -111,7 +111,6 @@ class ProductController extends Controller
         ];
 
         $validator = Validator::make($request->all(),$rules);
-        return $request;
         if($validator->fails() ) {
             return response()->json([
                 'status' => 'error',

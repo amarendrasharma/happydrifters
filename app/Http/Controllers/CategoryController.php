@@ -14,7 +14,7 @@ class CategoryController extends Controller
                     orderBy('created_at', 'desc');
         if ($request->has('search') && ($request->get('search') != null || $request->get('search') != 'null' || $request->get('search') != '')) {
             $searchQuery = $request->input('search'); 
-            $categories = $categories->where('name', 'like', '%'.$searchQuery.'%'); 
+            $categories = $categories->where('category_name', 'like', '%'.$searchQuery.'%'); 
         }
 
         if($request->has('size')) {
