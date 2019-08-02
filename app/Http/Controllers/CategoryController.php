@@ -125,7 +125,7 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $uuid)
     {
         $rules = [
             'category_name' => 'required|string|max:255'
