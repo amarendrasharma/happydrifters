@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Invoice;
 use App\InvoiceDetail;
-use App\Customer;
+use App\{Customer,Product};
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Carbon\Carbon;
 class InvoiceController extends Controller
 {
     public function index(Request $request){
@@ -125,6 +125,8 @@ class InvoiceController extends Controller
                 'gst_amount' => $gst_amount, 
                 'total_amount_payable' => $total_amount, 
                 'total_rounded_amount_payable' => $total_rounded_amount,
+                'checkin' => $request->checkin,
+                'checkout' => $request->checkout,
                 'invoice_history' => json_encode($inventory),  
                 'invoice_address' => json_encode($invoice_address),
                 'user_id' => auth()->user()->id
@@ -219,12 +221,13 @@ class InvoiceController extends Controller
         $data = $invoice->toArray(); 
         $data['created_at'] = (string) $invoice->created_at->format('d-m-Y');
         $data['balance'] = 0;
-        
+        $data['checkin'] =  (string)( new Carbon ($invoice->checkin))->format('d-m-Y');
+        $data['checkout'] =  (string)(new Carbon( $invoice->checkout))->format('d-m-Y');
         // $quantity = InvoiceDetail::where('invoice_id', $invoice->id)->sum('lot_quantity');
         $invoicedetails = InvoiceDetail::with('invoice')->where('invoice_id', $invoice->id)->get();
         // $gst = []; 
+      
         $total_gst_amount = 0;
-
         $discount_percentage = $invoice->discount_percentage;
         
         $data['invoicedetails'] = $invoicedetails->map(function($invoicedetail) use($discount_percentage) {
@@ -232,7 +235,7 @@ class InvoiceController extends Controller
             $invoicedetail->base_amount = $invoicedetail->product_quantity * $invoicedetail->base_price;
             $invoicedetail->discount_amount = $invoicedetail->base_amount * $discount_percentage/100;
             $invoicedetail->taxable_amount = $invoicedetail->base_amount - $invoicedetail->discount_amount;
-            $product_gst = $invoicedetail->product_gst; 
+            $product_gst = $invoicedetail->product_gst;
             $invoicedetail->total_gst = $invoicedetail->taxable_amount * ($product_gst/100); 
             $invoicedetail->total_amount = $invoicedetail->taxable_amount + $invoicedetail->total_gst;
             //set per product gst
@@ -240,6 +243,9 @@ class InvoiceController extends Controller
             $invoicedetail->cgst_value = $invoicedetail->total_gst / 2;
             $invoicedetail->sgst_per = $product_gst / 2;
             $invoicedetail->sgst_value = $invoicedetail->total_gst / 2;   
+            $product = Product::find($invoicedetail->product_id);
+            $invoicedetail->category = $product->category()->get();
+            $invoicedetail->category = $invoicedetail->category;
             return $invoicedetail;
         });  
             

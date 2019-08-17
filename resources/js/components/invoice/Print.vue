@@ -30,7 +30,7 @@
               <ul class="small list-inline text-xs-left text-uppercase mb-2 pb-1">
                 <li class="small d-flex justify-content-between align-items-center">
                   <span>invoice mno: {{ order.invoice_no }}</span>
-                  <span class="float-right">date: {{ order.created_at }}</span>
+                  <span class="float-right">date: {{ order.checkin }}</span>
                 </li>
               </ul>
               <ul class="small list-inline mb-1 p-2 w-100" style="border: 1px solid #222">
@@ -74,14 +74,19 @@
                     >Sl. No.</th>
                     <th
                       rowspan="2"
-                      style="font-weight:500;font-size:80%;"
+                      style="font-weight:500;font-size:60%;"
                       class="border p-1"
                     >Description of Item</th>
                     <th
                       rowspan="2"
                       style="font-weight:500;font-size:80%;"
                       class="border p-1"
-                    >HSN Code</th>
+                    >Checkin</th>
+                    <th
+                      rowspan="2"
+                      style="font-weight:500;font-size:80%;"
+                      class="border p-1"
+                    >Checkout</th>
                     <th
                       rowspan="2"
                       style="font-weight:500;font-size:80%;"
@@ -129,7 +134,8 @@
                   <tr v-for="(item, index) in order.invoicedetails" :key="item.id" class="small">
                     <td class="border-right p-1">{{index + 1}}</td>
                     <td class="border-right p-1">{{ item.product_name }}</td>
-                    <td class="border-right p-1">{{ item.hsn_code }}</td>
+                    <td class="border-right p-1">{{ order.checkin }}</td>
+                    <td class="border-right p-1">{{ order.checkout }}</td>
 
                     <td
                       class="border-right p-1 text-xs-center text-center"
@@ -154,7 +160,8 @@
                     >{{ item.total_amount | formattedCurrency }}</td>
                   </tr>
                   <template v-if="order.invoicedetails.length < 12">
-                    <tr v-for="i in 7" :key="i">
+                    <tr v-for="i in 9" :key="i">
+                      <td class="border-right" height="20px"></td>
                       <td class="border-right" height="20px"></td>
                       <td class="border-right" height="20px"></td>
                       <td class="border-right" height="20px"></td>
@@ -181,6 +188,7 @@
                     <td class="border text-right p-1">{{order.base_amount}}</td>
                     <td class="border text-right p-1">{{ order.discount_amount }}</td>
                     <td class="border text-right p-1"></td>
+                    <td class="border text-right p-1"></td>
                     <td
                       class="border text-right p-1"
                     >{{ order.total_gst_amount /2 | formattedCurrency }}</td>
@@ -198,6 +206,7 @@
                   <tr class="small">
                     <td colspan="3" class="border">Tax payable on reverse charge</td>
                     <td colspan="7" class="border"></td>
+                    <td colspan="7" class="border"></td>
                   </tr>
                   <tr class="small">
                     <td colspan="2" class="px-1 py-2">
@@ -209,7 +218,7 @@
                       >For: HAPPY DRIFTERS LLP</p>
                     </td>
                     <td
-                      colspan="10"
+                      colspan="14"
                       class="border text-center"
                     >Rupees {{parseFloat(order.total_amount) | toWords | titleCase}} only</td>
                   </tr>
@@ -217,7 +226,7 @@
                     <td colspan="2" class="px-1 py-2" style="vertical-align:bottom;">
                       <p class="text-center mb-0">Authorised Signatory</p>
                     </td>
-                    <td colspan="10" class="border p-1">
+                    <td colspan="14" class="border p-1">
                       <ul class="list-inline mb-0">
                         <li class="d-flex align-items-center">
                           <span style="width:100px;">
@@ -296,9 +305,8 @@ export default {
       let url = `/invoices/${this.uuid}`;
       return axios.get(url).then(response => {
         _this.order = response.data.data;
-        let x = JSON.decode(_this.order.invoice_address);
+        let x = JSON.stringify(_this.order);
         console.log("order", x);
-
         EventBus.$emit(
           "invoice-amount",
           response.data.data.total_rounded_amount_payable

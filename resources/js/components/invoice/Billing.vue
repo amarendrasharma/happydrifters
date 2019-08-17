@@ -133,7 +133,10 @@
 													<span>Sub Total</span>
 													<strong>{{ netAmount | currency('&#8377;') }}</strong>
 												</li> 
-
+                                                	<li class="list-group-item d-flex align-items-center justify-content-between">
+													<span>In {{getDays}} <b-form-input type="date" v-model="checkin"></b-form-input></span>
+													<span>Out <b-form-input type="date" v-model="checkout"></b-form-input></span>
+												</li>
 												<!-- <li class="list-group-item d-flex justify-content-between bg-light">
 													<span class="font-weight-bold">Amount Payable</span>
 													<strong>{{ netAmount | currency('&#8377;') }}</strong>
@@ -350,7 +353,7 @@ import VueScrollbar from "vue2-scrollbar";
 import "vue2-scrollbar/dist/style/vue2-scrollbar.css"
 import InvoicePrint from "./Print.vue"; 
 import {EventBus} from '../../event-bus'
-
+import {moment} from "moment";
 export default {
     components: {
         VueScrollbar,
@@ -371,6 +374,8 @@ export default {
             loading: false,
 			discountPercentage: 0,
             invoiceuuid: "",
+            checkin:"",
+            checkout:""
             // tender_amount: 0
         };
     },
@@ -448,7 +453,9 @@ export default {
                 rounded_amount: parseFloat(this.netRoundedAmount).toFixed(2),	
                 // tender_amount: parseFloat(this.tender_amount).toFixed(2),	
                 // balance_left: parseFloat(this.balanceLeft).toFixed(2),		
-                products: this.cart
+                products: this.cart,
+                checkin: this.checkin,
+                checkout: this.checkout
 			}; 
             console.log('order',order);
             axios
