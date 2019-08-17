@@ -16,6 +16,6 @@ class Product extends BaseModel
     }
 
     public function nothing() {
-      return "  nothing, git purposesdsdsdsdsdsdsd";
+      return "  nothing, git purpoasasassesdsdsdsdsdsdsd";
     }
 }
