@@ -433,7 +433,6 @@ export default {
 		
         completeOrder() {
             this.loading = true;
-			// return 
             let order = {   
 				payment_type: this.paymenttype,  
                 customer_phone: this.customer.customer_phone,  

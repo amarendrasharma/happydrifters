@@ -14,4 +14,8 @@ class Product extends BaseModel
     {
         return $query->where('active', '>' , 0);
     }
+
+    public function nothing() {
+      return "  nothing, git purpose";
+    }
 }

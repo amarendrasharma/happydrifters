@@ -89,7 +89,7 @@ class InvoiceController extends Controller
                     'address' => $request->customer_address,
                 ]
             ); 
-
+// lorem
             $invoice_address = [
                 'customer_name' => $customer->customer_name,
                 'customer_phone' => $customer->phone,
