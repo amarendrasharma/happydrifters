@@ -134,7 +134,7 @@
 													<strong>{{ netAmount | currency('&#8377;') }}</strong>
 												</li> 
                                                 	<li class="list-group-item d-flex align-items-center justify-content-between">
-													<span>In {{getDays}} <b-form-input type="date" v-model="checkin"></b-form-input></span>
+													<span>In  <b-form-input type="date" v-model="checkin"></b-form-input></span>
 													<span>Out <b-form-input type="date" v-model="checkout"></b-form-input></span>
 												</li>
 												<!-- <li class="list-group-item d-flex justify-content-between bg-light">
