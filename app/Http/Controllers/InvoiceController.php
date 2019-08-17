@@ -85,7 +85,7 @@ class InvoiceController extends Controller
                     'uuid' => (string) Str::uuid(),
                     'customer_name' => $request->customer_name, 
                     'mobile' => $request->customer_phone, 
-                    // 'customer_gstin' => strtoupper($request->customer_gstin),
+                    'customer_gstin' => strtoupper($request->customer_gstin),
                     'address' => $request->customer_address,
                 ]
             ); 
@@ -93,7 +93,7 @@ class InvoiceController extends Controller
             $invoice_address = [
                 'customer_name' => $customer->customer_name,
                 'customer_phone' => $customer->phone,
-                'customer_gstin' => $request->customer_name,
+                'customer_gstin' => $request->customer_gstin,
                 'billing_address' => $customer->customer_address,
                 'billing_state_code' => $customer->customer_address
             ];

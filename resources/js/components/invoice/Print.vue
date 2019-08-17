@@ -27,7 +27,6 @@
                 >Metsikchulung, Behind SNM Hospital Leh Jammu and Kashmir, 194101</li>
                 <li>hello@happydrifters.com</li>
               </ul>
-
               <ul class="small list-inline text-xs-left text-uppercase mb-2 pb-1">
                 <li class="small d-flex justify-content-between align-items-center">
                   <span>invoice mno: {{ order.invoice_no }}</span>
@@ -36,7 +35,7 @@
               </ul>
               <ul class="small list-inline mb-1 p-2 w-100" style="border: 1px solid #222">
                 <li class="small d-flex align-items-center">
-                  <span style="width:100px;">Buyers Name</span>
+                  <span style="width:100px;">Guest Name</span>
                   <span>: {{ order.customer.customer_name }}</span>
                 </li>
                 <li class="small d-flex align-items-center">
@@ -47,6 +46,14 @@
                   <span style="width:100px;">Phone</span>
                   <span>: {{ order.customer.phone }}</span>
                 </li>
+                <li class="small d-flex align-items-center">
+                  <span style="width:100px;">GSTIN</span>
+                  <span
+                    class="text-uppercase"
+                  >:{{ JSON.parse(order.invoice_address).customer_gstin ? JSON.parse(order.invoice_address).customer_gstin : ""}}</span>
+                </li>
+                <span style="color:red"></span>
+
                 <!-- <li class="small d-flex align-items-center">
                                     <span style="width:100px;">
                                         Place of Supply
@@ -289,6 +296,9 @@ export default {
       let url = `/invoices/${this.uuid}`;
       return axios.get(url).then(response => {
         _this.order = response.data.data;
+        let x = JSON.decode(_this.order.invoice_address);
+        console.log("order", x);
+
         EventBus.$emit(
           "invoice-amount",
           response.data.data.total_rounded_amount_payable

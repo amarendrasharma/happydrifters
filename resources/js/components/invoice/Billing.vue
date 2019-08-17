@@ -440,7 +440,7 @@ export default {
                 customer_address: this.customer.customer_address,  
                 customer_name: this.customer.customer_name,
 				customer_phone: this.customer.customer_phone,
-				  
+				customer_gstin: this.customer.customer_gstin ? this.customer.customer_gstin : "",
 				base_amount: parseFloat(this.baseTotal).toFixed(2),
                 discount_amount: parseFloat(this.discountAmount).toFixed(2),
                 discount_percentage: parseFloat(this.discountPercentage).toFixed(2),
