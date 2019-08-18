@@ -30,7 +30,7 @@
               <ul class="small list-inline text-xs-left text-uppercase mb-2 pb-1">
                 <li class="small d-flex justify-content-between align-items-center">
                   <span>invoice mno: {{ order.invoice_no }}</span>
-                  <span class="float-right">date: {{ order.checkin }}</span>
+                  <span class="float-right">date: {{ order.created_at }}</span>
                 </li>
               </ul>
               <ul class="small list-inline mb-1 p-2 w-100" style="border: 1px solid #222">
@@ -51,6 +51,15 @@
                   <span
                     class="text-uppercase"
                   >:{{ JSON.parse(order.invoice_address).customer_gstin ? JSON.parse(order.invoice_address).customer_gstin : ""}}</span>
+                </li>
+
+                <li class="small d-flex align-items-center">
+                  <span style="width:100px;">Checkin</span>
+                  <span class="text-uppercase">:{{order.checkin ? order.checkin : ""}}</span>
+                </li>
+                <li class="small d-flex align-items-center">
+                  <span style="width:100px;">Checkout</span>
+                  <span class="text-uppercase">:{{order.checkout ? order.checkout : ""}}</span>
                 </li>
                 <span style="color:red"></span>
 
@@ -74,19 +83,19 @@
                     >Sl. No.</th>
                     <th
                       rowspan="2"
-                      style="font-weight:500;font-size:60%;"
+                      style="font-weight:500;font-size:80%;"
                       class="border p-1"
                     >Description of Item</th>
                     <th
                       rowspan="2"
                       style="font-weight:500;font-size:80%;"
                       class="border p-1"
-                    >Checkin</th>
-                    <th
+                    >HSN Code</th>
+                    <!-- <th
                       rowspan="2"
                       style="font-weight:500;font-size:80%;"
                       class="border p-1"
-                    >Checkout</th>
+                    >Checkout</th>-->
                     <th
                       rowspan="2"
                       style="font-weight:500;font-size:80%;"
@@ -134,8 +143,8 @@
                   <tr v-for="(item, index) in order.invoicedetails" :key="item.id" class="small">
                     <td class="border-right p-1">{{index + 1}}</td>
                     <td class="border-right p-1">{{ item.product_name }}</td>
-                    <td class="border-right p-1">{{ order.checkin }}</td>
-                    <td class="border-right p-1">{{ order.checkout }}</td>
+                    <td class="border-right p-1"></td>
+                    <!-- <td class="border-right p-1">{{ order.checkout }}</td> -->
 
                     <td
                       class="border-right p-1 text-xs-center text-center"
@@ -173,7 +182,7 @@
                       <td class="border-right" height="20px"></td>
                       <td class="border-right" height="20px"></td>
                       <td class="border-right" height="20px"></td>
-                      <td class="border-right" height="20px"></td>
+                      <!-- <td class="border-right" height="20px"></td> -->
                     </tr>
                   </template>
                   <tr class="small">
@@ -188,7 +197,7 @@
                     <td class="border text-right p-1">{{order.base_amount}}</td>
                     <td class="border text-right p-1">{{ order.discount_amount }}</td>
                     <td class="border text-right p-1"></td>
-                    <td class="border text-right p-1"></td>
+                    <!-- <td class="border text-right p-1"></td> -->
                     <td
                       class="border text-right p-1"
                     >{{ order.total_gst_amount /2 | formattedCurrency }}</td>
@@ -206,7 +215,7 @@
                   <tr class="small">
                     <td colspan="3" class="border">Tax payable on reverse charge</td>
                     <td colspan="7" class="border"></td>
-                    <td colspan="7" class="border"></td>
+                    <!-- <td colspan="7" class="border"></td> -->
                   </tr>
                   <tr class="small">
                     <td colspan="2" class="px-1 py-2">
