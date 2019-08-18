@@ -13,12 +13,12 @@ class CreateUserSettingsTable extends Migration
      */
     public function up()
     {
-        // Schema::create('user_settings', function (Blueprint $table) {
-        //     $table->increments('id');
-        //     $table->unsignedInteger('user_id');
-        //     $table->string('invoice_format',50)->nullable();
-        //     $table->nullableTimestamps();
-        // });
+        Schema::create('user_settings', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('user_id');
+            $table->string('invoice_format', 50)->nullable();
+            $table->nullableTimestamps();
+        });
     }
 
     /**
@@ -28,6 +28,6 @@ class CreateUserSettingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('UserSetting');
+        Schema::dropIfExists('user_settings');
     }
 }

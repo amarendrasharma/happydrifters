@@ -19,10 +19,9 @@ class CreateProductsTable extends Migration
             $table->string('product_name');
             $table->unsignedInteger('category_id');
             $table->string('uom');
-            $table->decimal('product_price');
-            $table->decimal('gst');
-            $table->string('manufracturer');
-            $table->boolean('active');
+            $table->decimal('product_price', 8, 2);
+            $table->decimal('gst', 8, 2); 
+            $table->boolean('active')->default(1);
             $table->timestamps();
             $table->softDeletes();
         });
