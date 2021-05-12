@@ -25,7 +25,7 @@
     "dependencies": {
         "@lossendae/vue-avatar": "^0.1.5",
         "bootstrap-vue": "^2.0.0-rc.16",
-        "chart.js": "^2.7.2",
+        "chart.js": "^2.9.4",
         "number-to-words": "^1.2.4",
         "v-calendar": "^0.9.7",
         "vue-router": "^3.0.2",
